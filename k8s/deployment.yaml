@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: smartdeploy-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: smartdeploy
+
+  template:
+    metadata:
+      labels:
+        app: smartdeploy
+
+    spec:
+      containers:
+      - name: smartdeploy-container
+        image: smartdeploy-app
+
+        ports:
+        - containerPort: 3000
